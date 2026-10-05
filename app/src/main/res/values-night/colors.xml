@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Muted Dark Glassmorphic Steel Theme Colors (Night) -->
+    <color name="bg_main">#0F172A</color>
+    <color name="bg_secondary">#1E293B</color>
+    <color name="bg_appicon">#1E293B</color>
+    <color name="bg_surface">#1E293B</color>
+    <color name="bg_surface_card">#1E293B</color>
+    <color name="bg_card_elevated">#26334D</color>
+    <color name="bg_quick_features_card">#1E293B</color>
+    <color name="bg_card_highlight">#334155</color>
+    <color name="bg_card_gradient_start">#1E293B</color>
+    <color name="bg_card_gradient_end">#0F172A</color>
+
+    <!-- Brand Colors & Action System (Steel Cyan & Electric Steel Blue) -->
+    <color name="primary">#38BDF8</color>
+    <color name="primary_variant">#0EA5E9</color>
+    <color name="emerald_bright">#38BDF8</color>
+    <color name="emerald_soft">#7DD3FC</color>
+    <color name="accent_color">#38BDF8</color>
+    <color name="accent_cyan">#38BDF8</color>
+
+    <!-- Category Soft UI Accent Colors -->
+    <color name="cat_intruder">#38BDF8</color>
+    <color name="cat_intruder_bg">#2938BDF8</color>
+    <color name="cat_themes">#7DD3FC</color>
+    <color name="cat_themes_bg">#297DD3FC</color>
+    <color name="cat_profiles">#38BDF8</color>
+    <color name="cat_profiles_bg">#2938BDF8</color>
+    <color name="cat_vault">#38BDF8</color>
+    <color name="cat_vault_bg">#2938BDF8</color>
+
+    <!-- General Text Colors -->
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Transparent helpers / Border Outlines -->
+    <color name="card_border">#334155</color>
+    <color name="card_stroke_emerald">#475569</color>
+    <color name="translucent_white">#334155</color>
+    <color name="translucent_primary">#2938BDF8</color>
+    <color name="error">#EF4444</color>
+    <color name="success">#38BDF8</color>
+
+    <!-- Legacy / Material required colors -->
+    <color name="purple_200">#7DD3FC</color>
+    <color name="purple_500">#38BDF8</color>
+    <color name="purple_700">#0284C7</color>
+    <color name="teal_200">#38BDF8</color>
+    <color name="teal_700">#0284C7</color>
+</resources>

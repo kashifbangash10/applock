@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarDeviceAlbums"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBackDeviceAlbums"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Back"
+            app:tint="@color/text_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Albums"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/btnBackDeviceAlbums"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Tabs -->
+    <LinearLayout
+        android:id="@+id/tabRowDevice"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarDeviceAlbums">
+
+        <TextView
+            android:id="@+id/tabDeviceImages"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Images"
+            android:textColor="@color/primary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingEnd="28dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/tabDeviceVideos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Videos"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </LinearLayout>
+
+    <!-- Tab Indicator -->
+    <View
+        android:id="@+id/deviceTabIndicator"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/tabRowDevice"
+        app:layout_constraintStart_toStartOf="@id/tabDeviceImages"
+        app:layout_constraintEnd_toEndOf="@id/tabDeviceImages"/>
+
+    <View
+        android:id="@+id/deviceTabDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/card_border"
+        app:layout_constraintTop_toBottomOf="@id/deviceTabIndicator"/>
+
+    <!-- Album Grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDeviceAlbums"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/deviceTabDivider"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- Loading -->
+    <ProgressBar
+        android:id="@+id/progressDeviceAlbums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/deviceTabDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Empty -->
+    <TextView
+        android:id="@+id/tvDeviceAlbumsEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No albums found"
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/deviceTabDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

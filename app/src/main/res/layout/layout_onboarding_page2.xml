@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  PAGE 2 — Catch Intruders Red-Handed  (GUIDELINE PROPORTIONS V7)  -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+
+    <!-- Horizontal Guideline at 46% height -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideHero2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.46" />
+
+    <!-- Ambient ring -->
+    <View
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_glow_ring_pink"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHero2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Center camera hero card -->
+    <FrameLayout
+        android:id="@+id/cardHeroPage2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_onboarding_hero_card"
+        android:elevation="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHero2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.45">
+
+        <ImageView
+            android:id="@+id/ivHeroAnimPage2"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_onboard2_camera_anim"
+            android:contentDescription="Intruder Camera" />
+
+    </FrameLayout>
+
+    <!-- Floating: Intruder photo card TOP-RIGHT -->
+    <LinearLayout
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_onboarding_mini_card"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardHeroPage2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHero2"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintVertical_bias="0.22">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📸  Intruder Caught"
+            android:textColor="#EF4444"
+            android:textSize="9.5sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today, 11:32 AM"
+            android:textColor="#7AACC6"
+            android:textSize="8sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- Floating: Wrong attempts card BOTTOM-LEFT -->
+    <LinearLayout
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_onboarding_mini_card"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cardHeroPage2"
+        app:layout_constraintBottom_toTopOf="@id/guideHero2"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintVertical_bias="0.68">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚫  3 Wrong Attempts"
+            android:textColor="#F59E0B"
+            android:textSize="9.5sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photo log saved"
+            android:textColor="#7AACC6"
+            android:textSize="8sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- Status chip -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_feature_card_dark"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
+        android:elevation="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHero2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.95">
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/bg_badge_red"
+            android:layout_marginEnd="6dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Camera Trap Armed — Silent Mode"
+            android:textColor="#38BDF8"
+            android:textSize="9.5sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02" />
+    </LinearLayout>
+
+    <!-- CONTENT PANEL -->
+    <LinearLayout
+        android:id="@+id/contentPanel2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintTop_toBottomOf="@id/guideHero2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STEP 2 OF 4"
+            android:textColor="#EF4444"
+            android:textSize="9sp"
+            android:letterSpacing="0.12"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/bg_step_badge_cyan"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp" />
+
+        <TextView
+            android:id="@+id/tvOnboardingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catch Intruders&#10;Red-Handed"
+            android:textColor="#ECF4FF"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="6dp"
+            android:lineSpacingExtra="1dp" />
+
+        <TextView
+            android:id="@+id/tvOnboardingSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auto-snaps the intruder's photo with timestamp when they enter the wrong password on your apps."
+            android:textColor="#7AACC6"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:layout_marginTop="6dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📸  Auto Snap"
+                android:textColor="#B0D8F5"
+                android:textSize="10sp"
+                android:background="@drawable/bg_onboarding_feature_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🕵️  Photo Log"
+                android:textColor="#B0D8F5"
+                android:textSize="10sp"
+                android:background="@drawable/bg_onboarding_feature_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤫  Silent"
+                android:textColor="#B0D8F5"
+                android:textSize="10sp"
+                android:background="@drawable/bg_onboarding_feature_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

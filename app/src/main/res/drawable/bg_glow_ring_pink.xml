@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ambient Pink/Red Radial Glow Circle -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:type="radial"
+        android:gradientRadius="110dp"
+        android:startColor="#60EF4444"
+        android:centerColor="#18EF4444"
+        android:endColor="#00000000" />
+</shape>

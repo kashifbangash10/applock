@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================================
+         ULTRA PREMIUM DARK GLASSMORPHISM — Steel Cyan Theme
+         ============================================================ -->
+
+    <!-- Core Backgrounds — Pure deep dark blue-black -->
+    <color name="bg_main">#070E1C</color>
+    <color name="bg_secondary">#0B1628</color>
+    <color name="bg_appicon">#0B1628</color>
+    <color name="bg_surface">#0B1628</color>
+    <color name="bg_surface_card">#0B1628</color>
+    <color name="bg_card_elevated">#101E32</color>
+    <color name="bg_quick_features_card">#09131F</color>
+    <color name="bg_card_highlight">#152338</color>
+    <color name="bg_card_gradient_start">#0D1C2F</color>
+    <color name="bg_card_gradient_end">#060D1A</color>
+
+    <!-- Steel Cyan Brand Palette -->
+    <color name="primary">#38BDF8</color>
+    <color name="primary_variant">#0EA5E9</color>
+    <color name="emerald_bright">#38BDF8</color>
+    <color name="emerald_soft">#7DD3FC</color>
+    <color name="accent_color">#38BDF8</color>
+    <color name="accent_cyan">#38BDF8</color>
+
+    <!-- Button 3D Gradient System -->
+    <color name="btn_primary_gradient_start">#0369A1</color>
+    <color name="btn_primary_gradient_end">#38BDF8</color>
+    <color name="btn_primary_shadow">#010C1E</color>
+    <color name="pill_active_start">#0369A1</color>
+    <color name="pill_active_end">#38BDF8</color>
+
+    <!-- Icon Accent Aliases (all steel cyan) -->
+    <color name="icon_accent_orange">#38BDF8</color>
+    <color name="icon_accent_amber">#7DD3FC</color>
+    <color name="icon_accent_yellow">#0EA5E9</color>
+    <color name="icon_accent_blue">#38BDF8</color>
+    <color name="icon_accent_emerald">#38BDF8</color>
+
+    <!-- Category Badge Colors -->
+    <color name="cat_intruder">#38BDF8</color>
+    <color name="cat_intruder_bg">#0C38BDF8</color>
+    <color name="cat_themes">#7DD3FC</color>
+    <color name="cat_themes_bg">#0C7DD3FC</color>
+    <color name="cat_profiles">#38BDF8</color>
+    <color name="cat_profiles_bg">#0C38BDF8</color>
+    <color name="cat_vault">#38BDF8</color>
+    <color name="cat_vault_bg">#0C38BDF8</color>
+
+    <!-- Text System -->
+    <color name="text_primary">#ECF4FF</color>
+    <color name="text_secondary">#7AACC6</color>
+    <color name="text_muted">#3A5C78</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Status -->
+    <color name="warning_amber">#F59E0B</color>
+    <color name="warning_bg">#160E00</color>
+
+    <!-- Glass Borders and Overlays -->
+    <color name="card_border">#183352</color>
+    <color name="card_stroke_emerald">#183352</color>
+    <color name="translucent_white">#183352</color>
+    <color name="translucent_primary">#1238BDF8</color>
+    <color name="error">#EF4444</color>
+    <color name="success">#38BDF8</color>
+
+    <!-- Material compat -->
+    <color name="purple_200">#7DD3FC</color>
+    <color name="purple_500">#38BDF8</color>
+    <color name="purple_700">#0284C7</color>
+    <color name="teal_200">#38BDF8</color>
+    <color name="teal_700">#0284C7</color>
+</resources>

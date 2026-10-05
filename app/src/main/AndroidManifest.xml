@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permissions for App Locking -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Camera for Intruder Selfie -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Storage for Intruder Selfie Photos -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+
+    <!-- Storage for Vault (Android 13+ granular media permissions) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+
+    <!-- All Files Access for Vault (Android 11+) -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <!-- Receive boot complete to auto-start protection -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Foreground service for app monitor -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- Biometrics & Notifications -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Hardware features -->
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+
+    <application
+        android:name=".AppLockerApp"
+        android:allowBackup="true"
+        android:icon="@drawable/applockappicon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/applockappicon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppLockerApp">
+
+        <!-- Splash Screen Activity - NOT exported as LAUNCHER directly; aliases handle that -->
+        <activity
+            android:name=".presentation.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppLockerApp.Splash"/>
+
+        <!-- Interactive Onboarding Activity -->
+        <activity
+            android:name=".presentation.onboarding.OnboardingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppLockerApp" />
+
+
+        <!-- Main Activity - Single Activity Host -->
+        <activity
+            android:name=".presentation.MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.AppLockerApp" />
+
+        <!-- Lock Setup Activity -->
+        <activity
+            android:name=".presentation.lock.LockSetupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppLockerApp" />
+
+        <!-- Language Selection Activity (Onboarding) -->
+        <activity
+            android:name=".presentation.lock.LanguageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppLockerApp" />
+
+        <!-- Security Question Setup Activity (Onboarding) -->
+        <activity
+            android:name=".presentation.lock.SecurityQuestionSetupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppLockerApp" />
+
+        <service
+            android:name=".presentation.service.AppLockService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="App protection lock background monitoring service" />
+        </service>
+
+        <!-- Translucent Activity for Biometric Prompt hosting -->
+        <activity
+            android:name=".presentation.lock.BiometricAuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppLockerApp.Translucent" />
+
+        <!-- Security Question Reset Activity -->
+        <activity
+            android:name=".presentation.lock.SecurityQuestionResetActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppLockerApp" />
+
+        <!-- Translucent Activity for Widget auth prompt -->
+        <activity
+            android:name=".presentation.widget.WidgetAuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppLockerApp.Translucent" />
+
+        <!-- Quick Lock/Unlock Home Widget Receiver -->
+        <receiver
+            android:name=".presentation.widget.AppLockWidgetProvider"
+            android:exported="true"
+            android:label="AppLock Quick Protection">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_lock_widget_info" />
+        </receiver>
+
+        <!-- Boot Receiver: Auto-starts AppLockService after device reboot -->
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Icon Disguise Aliases - only one is enabled at a time via PackageManager -->
+        <activity-alias
+            android:name=".IconDefault"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:icon="@drawable/applockappicon"
+            android:roundIcon="@drawable/applockappicon"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconCalcTeal"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calculator"
+            android:icon="@drawable/ic_launcher_calc_teal"
+            android:roundIcon="@drawable/ic_launcher_calc_teal"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconCalcPurple"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calculator"
+            android:icon="@drawable/ic_launcher_calc_purple"
+            android:roundIcon="@drawable/ic_launcher_calc_purple"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconCalcBlue"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calculator"
+            android:icon="@drawable/ic_launcher_calc_blue"
+            android:roundIcon="@drawable/ic_launcher_calc_blue"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconCalcPink"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calculator"
+            android:icon="@drawable/ic_launcher_calc_pink"
+            android:roundIcon="@drawable/ic_launcher_calc_pink"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconWeatherBlue"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Weather"
+            android:icon="@drawable/ic_launcher_weather_blue"
+            android:roundIcon="@drawable/ic_launcher_weather_blue"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconWeatherPurple"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Weather"
+            android:icon="@drawable/ic_launcher_weather_purple"
+            android:roundIcon="@drawable/ic_launcher_weather_purple"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconWeatherGreen"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Weather"
+            android:icon="@drawable/ic_launcher_weather_green"
+            android:roundIcon="@drawable/ic_launcher_weather_green"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconWeatherCyan"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Weather"
+            android:icon="@drawable/ic_launcher_weather_cyan"
+            android:roundIcon="@drawable/ic_launcher_weather_cyan"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconRecCyan"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Recorder"
+            android:icon="@drawable/ic_launcher_rec_cyan"
+            android:roundIcon="@drawable/ic_launcher_rec_cyan"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconRecViolet"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Recorder"
+            android:icon="@drawable/ic_launcher_rec_violet"
+            android:roundIcon="@drawable/ic_launcher_rec_violet"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconRecGold"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Recorder"
+            android:icon="@drawable/ic_launcher_rec_gold"
+            android:roundIcon="@drawable/ic_launcher_rec_gold"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconRecOrange"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Recorder"
+            android:icon="@drawable/ic_launcher_rec_orange"
+            android:roundIcon="@drawable/ic_launcher_rec_orange"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconMusicPink"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Music"
+            android:icon="@drawable/ic_launcher_music_pink"
+            android:roundIcon="@drawable/ic_launcher_music_pink"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconMusicGreen"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Music"
+            android:icon="@drawable/ic_launcher_music_green"
+            android:roundIcon="@drawable/ic_launcher_music_green"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconMusicIndigo"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Music"
+            android:icon="@drawable/ic_launcher_music_indigo"
+            android:roundIcon="@drawable/ic_launcher_music_indigo"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".IconMusicAmber"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Music"
+            android:icon="@drawable/ic_launcher_music_amber"
+            android:roundIcon="@drawable/ic_launcher_music_amber"
+            android:targetActivity=".presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Device Admin Receiver for Uninstall Protection -->
+        <receiver
+            android:name=".receiver.AdminReceiver"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- FileProvider for safely sharing vault files with photos/videos viewer apps -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

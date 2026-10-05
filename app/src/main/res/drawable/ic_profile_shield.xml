@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Solid Steel Cyan Shield Background -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M48,12 L16,26 L16,56 C16,74.5 30.5,91.5 48,96 C65.5,91.5 80,74.5 80,56 L80,26 Z" />
+
+    <!-- White Lock Shackle -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M37,55 L37,47 C37,39 41,35 48,35 C55,35 59,39 59,47 L59,55" />
+
+    <!-- White Lock Body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M31,52 L65,52 C68,52 70,54 70,57 L70,75 C70,78 68,80 65,80 L31,80 C28,80 26,78 26,75 L26,57 C26,54 28,52 31,52 Z" />
+
+    <!-- Lock Keyhole Shadow/Detail -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M48,61 C45.8,61 44,62.8 44,65 C44,66.5 44.8,67.8 46,68.6 L45,74 L51,74 L50,68.6 C51.2,67.8 52,66.5 52,65 C52,62.8 50.2,61 48,61 Z" />
+</vector>

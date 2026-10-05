@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#FF1565C0"
+                android:endColor="#FF0D47A1"
+                android:angle="135"/>
+            <corners android:radius="24dp"/>
+        </shape>
+    </item>
+    <item android:gravity="center" android:width="50dp" android:height="50dp">
+        <bitmap android:src="@drawable/ic_lock_closed" android:gravity="center"/>
+    </item>
+</layer-list>

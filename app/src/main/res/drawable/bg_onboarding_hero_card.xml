@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Onboarding hero card — deep glass with bright cyan glow border V3 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Deep shadow base -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#010608" />
+            <corners android:radius="32dp" />
+        </shape>
+    </item>
+
+    <!-- Deep dark glass gradient surface -->
+    <item android:left="1dp" android:right="1dp" android:top="1dp" android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#0F203C"
+                android:centerColor="#091228"
+                android:endColor="#060C1E" />
+            <corners android:radius="31dp" />
+        </shape>
+    </item>
+
+    <!-- Glass shimmer top-left bright highlight -->
+    <item android:left="2dp" android:right="40dp" android:top="2dp" android:bottom="40dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#2538BDF8"
+                android:centerColor="#0C38BDF8"
+                android:endColor="#0038BDF8" />
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+
+    <!-- Bottom-right subtle indigo shimmer -->
+    <item android:left="40dp" android:right="2dp" android:top="40dp" android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="315"
+                android:startColor="#154F46E5"
+                android:endColor="#004F46E5" />
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+
+    <!-- Inner glass surface overlay -->
+    <item android:left="2dp" android:right="2dp" android:top="2dp" android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#0D38BDF8" />
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+
+    <!-- Bright glowing cyan border - main -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000" />
+            <stroke android:width="1.5dp" android:color="#4538BDF8" />
+            <corners android:radius="32dp" />
+        </shape>
+    </item>
+
+</layer-list>

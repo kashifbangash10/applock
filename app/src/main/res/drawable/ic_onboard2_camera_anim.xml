@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Animated Camera/Eye Trap Icon for Onboarding Page 2 - Intruder Detection -->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="80dp"
+            android:height="80dp"
+            android:viewportWidth="80"
+            android:viewportHeight="80">
+
+            <!-- Outer pulsing glow ring - Red/Orange for alert theme -->
+            <group
+                android:name="outer_ring"
+                android:pivotX="40"
+                android:pivotY="40"
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                android:alpha="0.4">
+                <path
+                    android:fillColor="#22EF4444"
+                    android:pathData="M40,2 A38,38,0,1,1,39.99,2 Z" />
+            </group>
+
+            <!-- Scanning beam group -->
+            <group
+                android:name="scan_beam"
+                android:pivotX="40"
+                android:pivotY="40"
+                android:alpha="0.6">
+                <path
+                    android:fillColor="#1AEF4444"
+                    android:pathData="M40,40 L8,40 A32,32,0,0,1,40,8 Z" />
+            </group>
+
+            <!-- Camera body background -->
+            <path
+                android:fillColor="#1AEF4444"
+                android:pathData="M15,28 Q14,28 14,29 L14,56 Q14,57 15,57 L65,57 Q66,57 66,56 L66,29 Q66,28 65,28 Z" />
+
+            <!-- Camera body border -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#EF4444"
+                android:strokeWidth="1.8"
+                android:pathData="M15,28 Q14,28 14,29 L14,56 Q14,57 15,57 L65,57 Q66,57 66,56 L66,29 Q66,28 65,28 Z" />
+
+            <!-- Camera bump top -->
+            <path
+                android:fillColor="#1AEF4444"
+                android:strokeColor="#EF4444"
+                android:strokeWidth="1.5"
+                android:pathData="M32,28 L32,22 Q32,21 33,21 L47,21 Q48,21 48,22 L48,28 Z" />
+
+            <!-- Lens outer circle -->
+            <group
+                android:name="lens_outer"
+                android:pivotX="40"
+                android:pivotY="42">
+                <path
+                    android:fillColor="#0DEF4444"
+                    android:strokeColor="#EF4444"
+                    android:strokeWidth="1.8"
+                    android:pathData="M40,42 m-14,0 a14,14,0,1,1,28,0 a14,14,0,1,1,-28,0" />
+            </group>
+
+            <!-- Lens middle -->
+            <path
+                android:fillColor="#15EF4444"
+                android:strokeColor="#EF4444"
+                android:strokeWidth="1.2"
+                android:pathData="M40,42 m-9,0 a9,9,0,1,1,18,0 a9,9,0,1,1,-18,0" />
+
+            <!-- Lens pupil -->
+            <group
+                android:name="lens_pupil"
+                android:pivotX="40"
+                android:pivotY="42"
+                android:scaleX="1.0"
+                android:scaleY="1.0">
+                <path
+                    android:fillColor="#EF4444"
+                    android:pathData="M40,42 m-4.5,0 a4.5,4.5,0,1,1,9,0 a4.5,4.5,0,1,1,-9,0" />
+            </group>
+
+            <!-- Lens shine -->
+            <path
+                android:fillColor="#80FFFFFF"
+                android:pathData="M36,38 Q37.5,36.5 39,37 Q37,38 36,38 Z" />
+
+            <!-- Flash button top right -->
+            <path
+                android:fillColor="#EF4444"
+                android:pathData="M57,30 m-3.5,0 a3.5,3.5,0,1,1,7,0 a3.5,3.5,0,1,1,-7,0" />
+
+            <!-- Alert indicator dot -->
+            <group android:name="alert_dot">
+                <path
+                    android:fillColor="#FF5252"
+                    android:pathData="M63,24 m-4,0 a4,4,0,1,1,8,0 a4,4,0,1,1,-8,0" />
+                <path
+                    android:fillColor="#FFFFFF"
+                    android:pathData="M61.5,22.5 L64.5,25.5 M61.5,25.5 L64.5,22.5" />
+            </group>
+
+        </vector>
+    </aapt:attr>
+
+    <!-- Outer ring pulse -->
+    <target android:name="outer_ring">
+        <aapt:attr name="android:animation">
+            <set android:ordering="together">
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.15"
+                    android:duration="1200"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.15"
+                    android:duration="1200"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+                <objectAnimator
+                    android:propertyName="alpha"
+                    android:valueFrom="0.4"
+                    android:valueTo="0.9"
+                    android:duration="1200"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- Scan beam rotation -->
+    <target android:name="scan_beam">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="rotation"
+                android:valueFrom="0"
+                android:valueTo="360"
+                android:duration="4000"
+                android:repeatCount="infinite"
+                android:interpolator="@android:interpolator/linear" />
+        </aapt:attr>
+    </target>
+
+    <!-- Lens pupil zoom - mimics eye focusing -->
+    <target android:name="lens_pupil">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.0"
+                    android:valueTo="0.5"
+                    android:duration="400"
+                    android:startOffset="1000"
+                    android:interpolator="@android:interpolator/fast_out_slow_in" />
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="0.5"
+                    android:valueTo="1.0"
+                    android:duration="400"
+                    android:interpolator="@android:interpolator/fast_out_slow_in" />
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.0"
+                    android:duration="1500" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- Alert dot blink -->
+    <target android:name="alert_dot">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="alpha"
+                android:valueFrom="1.0"
+                android:valueTo="0.1"
+                android:duration="500"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:interpolator="@android:interpolator/accelerate_decelerate" />
+        </aapt:attr>
+    </target>
+
+    <!-- Lens outer ring pulse -->
+    <target android:name="lens_outer">
+        <aapt:attr name="android:animation">
+            <set android:ordering="together">
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.1"
+                    android:duration="800"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.1"
+                    android:duration="800"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+            </set>
+        </aapt:attr>
+    </target>
+
+</animated-vector>

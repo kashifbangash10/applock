@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <!-- Round container -->
+  <path
+      android:pathData="M54,54m-46,0a46,46 0,1 1,92 0a46,46 0,1 1,-92 0"
+      android:fillColor="#FF0D47A1"/>
+  <!-- Inner circular glow -->
+  <path
+      android:pathData="M54,54m-41,0a41,41 0,1 1,82 0a41,41 0,1 1,-82 0"
+      android:strokeWidth="2"
+      android:strokeColor="#FF00E5FF"/>
+  <!-- Key icon -->
+  <path
+      android:pathData="M54,30 C49,30 45,34 45,39 C45,42.8 47.4,46 50.7,47.3 L48,55 L54,59 L60,55 L57.3,47.3 C60.6,46 63,42.8 63,39 C63,34 59,30 54,30 Z"
+      android:fillColor="#FFFFFFFF"/>
+</vector>

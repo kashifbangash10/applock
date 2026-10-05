@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home_wallpaper">
+
+    <!-- ===== TOP AMBIENT GLOW LIGHT ===== -->
+    <View
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:background="@drawable/bg_glow_ring_cyan"
+        android:alpha="0.20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/heroSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ===== CENTER HERO SECTION ===== -->
+    <LinearLayout
+        android:id="@+id/heroSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.42">
+
+        <!-- Outer Glowing Logo Card Container -->
+        <FrameLayout
+            android:id="@+id/cardSplashLogoContainer"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center">
+
+            <!-- Glowing Outer Halo Ring -->
+            <View
+                android:id="@+id/viewSplashGlowRing"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@drawable/bg_glow_ring_cyan"
+                android:layout_gravity="center"/>
+
+            <!-- Circular Glass Background Card -->
+            <View
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="@drawable/bg_lock_circle_dark"
+                android:layout_gravity="center"/>
+
+            <!-- 3D Glass Lock Main Icon (Reference Image 3 Red Circle) -->
+            <ImageView
+                android:id="@+id/imgSplashLogo"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/ic_main_card_lock_3d"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+        <!-- App Name Title (Reference Image 1 & 2) -->
+        <TextView
+            android:id="@+id/tvSplashTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="App Locker"
+            android:textColor="@color/text_primary"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.02"
+            android:gravity="center"/>
+
+        <!-- App Subtitle (Reference Image 1 & 2) -->
+        <TextView
+            android:id="@+id/tvSplashSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Lock your app &amp; protect your privacy"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- ===== BOTTOM SECTION ===== -->
+    <!-- Horizontal Animated Progress Bar Line (Reference Image 2) -->
+    <ProgressBar
+        android:id="@+id/progressSplashLine"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="260dp"
+        android:layout_height="6dp"
+        android:layout_marginBottom="120dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/bg_splash_progress_line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 3D Primary Cyber Gradient Get Started Button (App Theme Button) -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGetStartedSplash"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/btn_gradient_primary_3d"
+        android:text="Get Started"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.02"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

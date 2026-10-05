@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home_wallpaper"
+    tools:context=".presentation.home.HomeFragment">
+
+    <!--
+        ==================================================
+        LAYER 1: FIXED BACKGROUND CONTAINER (100% Static)
+        Contains Header + Protection Status Card + Quick Features.
+        Stays 100% frozen in the background behind Layer 2.
+        ==================================================
+    -->
+    <LinearLayout
+        android:id="@+id/layoutFixedBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/transparent">
+
+        <!-- Normal Header Row: Hamburger + "App Locker" + Search + Crown -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutHeaderNormal"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:paddingHorizontal="12dp"
+            android:background="@android:color/transparent">
+
+            <ImageButton
+                android:id="@+id/btnDrawer"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_menu_hamburger"
+                android:contentDescription="Menu"
+                app:tint="@color/text_primary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="App Locker"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintStart_toEndOf="@id/btnDrawer"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/btnSearch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_search"
+                android:contentDescription="Search apps"
+                app:tint="@color/text_primary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Protection Status Card -->
+        <LinearLayout
+            android:id="@+id/cardProtectionStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/card_gradient_emerald"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivShieldIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_main_card_lock_3d"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="Protection Status Shield"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Protection Status:"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="2dp">
+
+                        <TextView
+                            android:id="@+id/tvProtectionStatusState"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inactive"
+                            android:textColor="@color/warning_amber"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-black"/>
+
+                        <ImageView
+                            android:id="@+id/ivStatusBadge"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="6dp"
+                            android:src="@drawable/ic_badge_warning_orange"
+                            android:contentDescription="Warning Badge"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvLockedAppsCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="0 Apps Locked"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:id="@+id/layoutAppIconsPreview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="6dp">
+
+                        <ImageView
+                            android:id="@+id/ivPreviewIcon1"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_app_icon_default"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="Preview App Icon"/>
+
+                        <ImageView
+                            android:id="@+id/ivPreviewIcon2"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_app_icon_default"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="Preview App Icon"/>
+
+                        <ImageView
+                            android:id="@+id/ivPreviewIcon3"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_app_icon_default"
+                            android:layout_marginEnd="6dp"
+                            android:contentDescription="Preview App Icon"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+ More"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Manage Locked Apps Button -->
+            <LinearLayout
+                android:id="@+id/btnManageLockedApps"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_gradient_primary_3d"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="18dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@animator/btn_press_scale">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_lock_closed"
+                    app:tint="@color/white"
+                    android:contentDescription="Manage Lock"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:text="Manage Locked Apps"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/white"
+                    android:contentDescription="Next Arrow"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 4 Quick Action Feature Cards -->
+        <LinearLayout
+            android:id="@+id/layoutQuickFeatures"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_quick_features_card"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="10dp"
+            android:weightSum="4">
+
+            <!-- Intruder Selfie -->
+            <LinearLayout
+                android:id="@+id/cardIntruder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@animator/btn_press_scale"
+                android:background="@drawable/ripple_feature_card">
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_icon_intruder">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_feature_intruder"
+                        android:contentDescription="Intruder Selfie"
+                        app:tint="@color/white"/>
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/action_intruder"
+                    android:textColor="@color/text_primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <!-- Themes -->
+            <LinearLayout
+                android:id="@+id/cardThemes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@animator/btn_press_scale"
+                android:background="@drawable/ripple_feature_card">
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_icon_themes">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_feature_themes"
+                        android:contentDescription="Themes"
+                        app:tint="@color/white"/>
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/action_themes"
+                    android:textColor="@color/text_primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <!-- Profiles -->
+            <LinearLayout
+                android:id="@+id/cardProfiles"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@animator/btn_press_scale"
+                android:background="@drawable/ripple_feature_card">
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_icon_profiles">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_feature_profiles"
+                        android:contentDescription="Profiles"
+                        app:tint="@color/white"/>
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/action_profiles"
+                    android:textColor="@color/text_primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <!-- Vault -->
+            <LinearLayout
+                android:id="@+id/cardVault"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@animator/btn_press_scale"
+                android:background="@drawable/ripple_feature_card">
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_icon_vault">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_feature_vault"
+                        android:contentDescription="Vault"
+                        app:tint="@color/white"/>
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/action_vault"
+                    android:textColor="@color/text_primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--
+        ==================================================
+        LAYER 2: SLIDING FOREGROUND PANEL (Curtain / Overlay)
+        Contains Sticky Toggle Bar + Section Header + App List.
+        Initially positioned right below Layer 1 (resting position).
+        Translates UP to physical y=0 covering Layer 1 when scrolled.
+        ==================================================
+    -->
+    <LinearLayout
+        android:id="@+id/panelContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_home_wallpaper"
+        app:layout_behavior="com.applockerapp.presentation.home.SlidingPanelBehavior">
+
+        <!-- Sticky Toggle Bar Container -->
+        <FrameLayout
+            android:id="@+id/layoutStickyToggleBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_home_wallpaper"
+            android:elevation="12dp">
+
+            <!-- STATE 1 (Normal): Plain Unlocked/Locked pill -->
+            <LinearLayout
+                android:id="@+id/tabLayoutContainer"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/bg_tab_capsule_container"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="2"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tabUnlocked"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/pill_active_gradient"
+                    android:gravity="center"
+                    android:text="Unlocked"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="12dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <TextView
+                    android:id="@+id/tabLocked"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tab_capsule_inactive"
+                    android:gravity="center"
+                    android:text="Locked"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:paddingHorizontal="12dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+            </LinearLayout>
+
+            <!-- STATE 2 (Expanded/Collapsed Header): Back arrow + centered capsule + Search icon -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutHeaderExpanded"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="8dp"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/btnBackFromExpanded"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_arrow_back"
+                    android:contentDescription="Back to Home"
+                    app:tint="@color/text_primary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <LinearLayout
+                    android:id="@+id/tabLayoutContainerHeader"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_tab_capsule_container"
+                    android:orientation="horizontal"
+                    android:padding="3dp"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toEndOf="@id/btnBackFromExpanded"
+                    app:layout_constraintEnd_toStartOf="@id/btnSearchExpanded"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginHorizontal="4dp">
+
+                    <TextView
+                        android:id="@+id/tabUnlockedHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/pill_active_gradient"
+                        android:gravity="center"
+                        android:text="Unlocked"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="8dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                    <TextView
+                        android:id="@+id/tabLockedHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tab_capsule_inactive"
+                        android:gravity="center"
+                        android:text="Locked"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:paddingHorizontal="8dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnSearchExpanded"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_search"
+                    android:contentDescription="Search apps"
+                    app:tint="@color/text_primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+        <!-- SECTION HEADER ("Hot >80%") -->
+        <LinearLayout
+            android:id="@+id/layoutSectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hot"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_badge_hot"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text=">80%"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <!-- App List Frame layout containing RecyclerView + Empty state -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvApps"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp"
+                tools:listitem="@layout/item_app"/>
+
+            <!-- Loading Spinner -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="32dp"
+                android:visibility="gone"/>
+
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/layoutEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="40dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_shield"
+                    app:tint="@color/text_muted"
+                    android:contentDescription="No apps locked"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/no_apps_locked_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/no_apps_locked_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Permission Overlay Backdrop -->
+    <View
+        android:id="@+id/permissionOverlayBackdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E0070D14"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"/>
+
+    <!-- Permission Dialog Card Container -->
+    <FrameLayout
+        android:id="@+id/permissionOverlayContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:visibility="gone">
+        <include layout="@layout/dialog_permission"/>
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

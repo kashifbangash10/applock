@@ -1,0 +1,50 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <!-- Rounded corner card background -->
+  <path
+      android:pathData="M24,12 L84,12 C90.6,12 96,17.4 96,24 L96,84 C96,90.6 90.6,96 84,96 L24,96 C17.4,96 12,90.6 12,84 L12,24 C12,17.4 17.4,12 24,12 Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="12"
+          android:startY="12"
+          android:endX="96"
+          android:endY="96"
+          android:type="linear">
+        <item android:offset="0.0" android:color="#FF1976D2"/>
+        <item android:offset="1.0" android:color="#FF0D47A1"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <!-- Calculator keys -->
+  <path
+      android:pathData="M34,30 L46,30 L46,42 L34,42 Z"
+      android:fillColor="#FFFFFFFF"/>
+  <path
+      android:pathData="M34,48 L46,48 L46,60 L34,60 Z"
+      android:fillColor="#FFFFFFFF"/>
+  <path
+      android:pathData="M34,66 L46,66 L46,78 L34,78 Z"
+      android:fillColor="#FFFFFFFF"/>
+  <path
+      android:pathData="M52,30 L64,30 L64,42 L52,42 Z"
+      android:fillColor="#FFFFFFFF"/>
+  <path
+      android:pathData="M52,48 L64,48 L64,60 L52,60 Z"
+      android:fillColor="#FFFFFFFF"/>
+  <path
+      android:pathData="M52,66 L64,66 L64,78 L52,78 Z"
+      android:fillColor="#FFFFFFFF"/>
+  <path
+      android:pathData="M70,30 L82,30 L82,42 L70,42 Z"
+      android:fillColor="#FFFFFFFF"/>
+  <path
+      android:pathData="M70,48 L82,48 L82,60 L70,60 Z"
+      android:fillColor="#FFFFFFFF"/>
+  <path
+      android:pathData="M70,66 L82,66 L82,78 L70,78 Z"
+      android:fillColor="#FFFFFFFF"/>
+</vector>

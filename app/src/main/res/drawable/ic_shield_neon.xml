@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+
+    <!-- Outer Glow / Shield Shadow Body -->
+    <path
+        android:fillColor="#251F60FF"
+        android:pathData="M40,5 L10,18 L10,44 C10,61 23,73 40,78 C57,73 70,61 70,44 L70,18 Z" />
+
+    <!-- Main Shield Outer Gradient Body -->
+    <path
+        android:fillColor="#1E60FF"
+        android:pathData="M40,8 L13,20 L13,42 C13,57 24.5,68 40,73 C55.5,68 67,57 67,42 L67,20 Z" />
+
+    <!-- Inner Shield Accent -->
+    <path
+        android:fillColor="#8B30FF"
+        android:pathData="M40,14 L18,24 L18,42 C18,54 27.5,63.5 40,68 C52.5,63.5 62,54 62,42 L62,24 Z" />
+
+    <!-- Lock Shackle -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M32,42 L32,36 C32,31.5 35.5,28 40,28 C44.5,28 48,31.5 48,36 L48,42" />
+
+    <!-- Lock Body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M27,42 L53,42 C55.2,42 57,43.8 57,46 L57,58 C57,60.2 55.2,62 53,62 L27,62 C24.8,62 23,60.2 23,58 L23,46 C23,43.8 24.8,42 27,42 Z" />
+
+    <!-- Keyhole -->
+    <path
+        android:fillColor="#8B30FF"
+        android:pathData="M40,48 C38.3,48 37,49.3 37,51 C37,52.1 37.6,53.1 38.5,53.6 L38,57 L42,57 L41.5,53.6 C42.4,53.1 43,52.1 43,51 C43,49.3 41.7,48 40,48 Z" />
+</vector>

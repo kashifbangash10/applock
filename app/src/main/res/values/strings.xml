@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">AppLocker Pro</string>
+
+    <!-- Bottom Nav Menu (still needed by bottom_nav_menu.xml resource) -->
+    <string name="menu_home">Home</string>
+    <string name="menu_apps">Apps</string>
+    <string name="menu_profile">Profile</string>
+
+    <!-- Home Screen -->
+    <string name="home_subtitle">Your apps, secured and organized. ✨</string>
+    <string name="welcome_icon_desc">App welcome illustration</string>
+    <string name="locked_apps_filter">Locked</string>
+    <string name="unlocked_apps_filter">Unlocked</string>
+    <string name="all_apps_filter">All Apps</string>
+    <string name="no_apps_locked_title">No Locked Apps</string>
+    <string name="no_apps_locked_desc">Select apps from the list below to secure them instantly.</string>
+    
+    <!-- Quick Actions -->
+    <string name="action_intruder">Intruder Selfie</string>
+    <string name="action_themes">Themes</string>
+    <string name="action_profiles">Profiles</string>
+    <string name="action_vault">Vault</string>
+
+    <!-- Navigation Titles -->
+    <string name="title_home">Security Hub</string>
+    <string name="title_intruder_selfie">Intruder Selfie</string>
+    <string name="title_themes">Themes Store</string>
+    <string name="title_vault">Secure Vault</string>
+    <string name="title_settings">Security Settings</string>
+
+    <!-- Permissions Dialog -->
+    <string name="permission_required_title">Permission Required</string>
+    <string name="permission_required_subtitle">AppLocker needs these permissions to secure your apps effectively.</string>
+    <string name="permission_draw_overlays">Display Over Other Apps</string>
+    <string name="permission_draw_overlays_desc">Allows showing lock screen layout on top of locked apps.</string>
+    <string name="permission_usage_access">Usage Access</string>
+    <string name="permission_usage_access_desc">Allows detecting when a locked app is launched.</string>
+    <string name="btn_grant">Grant Permissions</string>
+
+    <!-- Intruder Selfie -->
+    <string name="setting_capture_intruder">Capture Intruder Selfie</string>
+    <string name="setting_capture_intruder_desc">Snap a photo when someone inputs a wrong password.</string>
+    <string name="setting_intruders_gallery">Intruder Photo Gallery</string>
+    <string name="setting_attempt_limit">Wrong Attempt Limit</string>
+    <string name="attempt_limit_1">1 Attempt</string>
+    <string name="attempt_limit_2">2 Attempts</string>
+    <string name="attempt_limit_3">3 Attempts</string>
+    <string name="no_intruders_title">Intruder Gallery Empty</string>
+    <string name="no_intruders_desc">Intruder snapshots will appear here when wrong unlocks are attempted.</string>
+
+    <!-- Themes -->
+    <string name="tab_animals">Animals 🦁</string>
+    <string name="tab_anime">Anime 🌸</string>
+    <string name="tab_gradient">Gradients 🎨</string>
+    <string name="tab_hot">Hot 🔥</string>
+    <string name="tab_emoji">Emoji 😊</string>
+    <string name="tab_sports">Sports 🏆</string>
+    
+    <!-- Errors / Actions -->
+    <string name="retry">Try Again</string>
+    <string name="loading">Loading…</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="success_theme_applied">Theme applied successfully!</string>
+    <!-- Device Admin / Uninstall Protection -->
+    <string name="device_admin_description">Activate Uninstall Protection to prevent intruders or other users from uninstalling AppLocker Pro without authentication.</string>
+</resources>

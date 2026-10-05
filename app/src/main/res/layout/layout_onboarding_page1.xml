@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  PAGE 1 — Lock Any App Instantly  (GUIDELINE PROPORTIONS V7)  -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+
+    <!-- Horizontal Guideline at 46% height -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideHero1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.46" />
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  HERO ZONE  (upper portion of screen)            -->
+    <!-- ══════════════════════════════════════════════════ -->
+
+    <!-- Ambient radial glow background -->
+    <View
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_glow_ring_cyan"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHero1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Center Hero Card with Animated Lock Icon -->
+    <FrameLayout
+        android:id="@+id/cardHeroPage1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_onboarding_hero_card"
+        android:elevation="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHero1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.45">
+
+        <ImageView
+            android:id="@+id/ivHeroAnimPage1"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_onboard1_lock_anim"
+            android:contentDescription="Shield Lock" />
+
+    </FrameLayout>
+
+    <!-- Floating Mini Card TOP-RIGHT — "WhatsApp Locked" -->
+    <LinearLayout
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_onboarding_mini_card"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardHeroPage1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHero1"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintVertical_bias="0.22">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_lock_closed"
+            app:tint="#38BDF8"
+            android:contentDescription="Locked" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WhatsApp"
+                android:textColor="#ECF4FF"
+                android:textSize="9.5sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔒 Locked"
+                android:textColor="#38BDF8"
+                android:textSize="8sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Floating Mini Card BOTTOM-LEFT — "Gallery Locked" -->
+    <LinearLayout
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_onboarding_mini_card"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cardHeroPage1"
+        app:layout_constraintBottom_toTopOf="@id/guideHero1"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintVertical_bias="0.68">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_gallery"
+            app:tint="#38BDF8"
+            android:contentDescription="Gallery" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gallery"
+                android:textColor="#ECF4FF"
+                android:textSize="9.5sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔒 Locked"
+                android:textColor="#38BDF8"
+                android:textSize="8sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Shield status badge bottom of hero zone -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_feature_card_dark"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
+        android:elevation="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideHero1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.95">
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/bg_badge_live"
+            android:layout_marginEnd="6dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protection Active — Apps Locked"
+            android:textColor="#38BDF8"
+            android:textSize="9.5sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02" />
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  CONTENT PANEL (lower portion)                    -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/contentPanel1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintTop_toBottomOf="@id/guideHero1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <!-- Step pill -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STEP 1 OF 4"
+            android:textColor="#38BDF8"
+            android:textSize="9sp"
+            android:letterSpacing="0.12"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/bg_step_badge_cyan"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp" />
+
+        <!-- Bold Title -->
+        <TextView
+            android:id="@+id/tvOnboardingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lock Any App,&#10;In One Tap"
+            android:textColor="#ECF4FF"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="6dp"
+            android:lineSpacingExtra="1dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tvOnboardingSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Protect WhatsApp, Instagram, Gallery &amp; Banking apps with PIN, Pattern or Fingerprint lock."
+            android:textColor="#7AACC6"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:layout_marginTop="6dp" />
+
+        <!-- Feature Chips -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔐  PIN"
+                android:textColor="#B0D8F5"
+                android:textSize="10sp"
+                android:background="@drawable/bg_onboarding_feature_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔷  Pattern"
+                android:textColor="#B0D8F5"
+                android:textSize="10sp"
+                android:background="@drawable/bg_onboarding_feature_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🧬  Biometric"
+                android:textColor="#B0D8F5"
+                android:textSize="10sp"
+                android:background="@drawable/bg_onboarding_feature_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

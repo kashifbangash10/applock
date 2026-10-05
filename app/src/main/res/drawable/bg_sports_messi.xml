@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base premium gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:startColor="#01579B"
+                android:centerColor="#00B0FF"
+                android:endColor="#80D8FF"
+                android:angle="270" />
+        </shape>
+    </item>
+    <!-- Gold accent glowing radial orb -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="250dp"
+                android:startColor="#50FFD700"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+</layer-list>

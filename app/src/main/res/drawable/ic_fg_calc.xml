@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <!-- Premium Calculator: +, -, x, = with a folded page corner -->
+  <group
+      android:translateX="8.1"
+      android:translateY="8.1"
+      android:scaleX="0.85"
+      android:scaleY="0.85">
+      
+      <!-- Plus (+) -->
+      <path
+          android:fillColor="#FFFFFFFF"
+          android:pathData="M30,36 h16 v4 h-16 z"/>
+      <path
+          android:fillColor="#FFFFFFFF"
+          android:pathData="M36,30 h4 v16 h-4 z"/>
+          
+      <!-- Minus (-) -->
+      <path
+          android:fillColor="#FFFFFFFF"
+          android:pathData="M62,36 h16 v4 h-16 z"/>
+          
+      <!-- Multiply (x) -->
+      <path
+          android:fillColor="#FFFFFFFF"
+          android:pathData="M27,63 L31,59 L38,66 L45,59 L49,63 L42,70 L49,77 L45,81 L38,74 L31,81 L27,77 L34,70 Z"/>
+          
+      <!-- Equals (=) -->
+      <path
+          android:fillColor="#FFFFFFFF"
+          android:pathData="M62,64 h16 v3 h-16 z"/>
+      <path
+          android:fillColor="#FFFFFFFF"
+          android:pathData="M62,72 h16 v3 h-16 z"/>
+    
+      <!-- Page fold shadow -->
+      <path
+          android:fillColor="#40000000"
+          android:pathData="M68,88 C68,76 76,68 88,68 L88,72 C78,72 72,78 72,88 Z"/>
+      <!-- Page fold dog-ear -->
+      <path
+          android:fillColor="#FFF5F5F5"
+          android:pathData="M72,88 C72,78 78,72 88,72 L88,88 Z"/>
+  </group>
+</vector>

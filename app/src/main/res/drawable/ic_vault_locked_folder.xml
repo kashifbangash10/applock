@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="160dp"
+    android:viewportWidth="160"
+    android:viewportHeight="160">
+
+    <!-- Outer glow ring (subtle) -->
+    <path
+        android:fillColor="#1500C4FF"
+        android:pathData="M80,8 C40.24,8 8,40.24 8,80 C8,119.76 40.24,152 80,152 C119.76,152 152,119.76 152,80 C152,40.24 119.76,8 80,8 Z"/>
+
+    <!-- Middle ring -->
+    <path
+        android:fillColor="#2200A8D8"
+        android:pathData="M80,18 C45.76,18 18,45.76 18,80 C18,114.24 45.76,142 80,142 C114.24,142 142,114.24 142,80 C142,45.76 114.24,18 80,18 Z"/>
+
+    <!-- Inner dark circle background -->
+    <path
+        android:fillColor="#0D0D1A"
+        android:pathData="M80,26 C50.18,26 26,50.18 26,80 C26,109.82 50.18,134 80,134 C109.82,134 134,109.82 134,80 C134,50.18 109.82,26 80,26 Z"/>
+
+    <!-- Shield body outer -->
+    <path
+        android:fillColor="#0099CC"
+        android:pathData="M80,36 L46,52 L46,82 C46,101.88 61.08,119.76 80,124 C98.92,119.76 114,101.88 114,82 L114,52 Z"/>
+
+    <!-- Shield body inner gradient layer -->
+    <path
+        android:fillColor="#006699"
+        android:pathData="M80,42 L50,56.4 L50,82 C50,98.8 63.2,115.08 80,119 C96.8,115.08 110,98.8 110,82 L110,56.4 Z"/>
+
+    <!-- Shield highlight (top gleam) -->
+    <path
+        android:fillColor="#33FFFFFF"
+        android:pathData="M80,44 L52,57.6 L52,72 L80,65 Z"/>
+
+    <!-- Shield inner dark area -->
+    <path
+        android:fillColor="#001A33"
+        android:pathData="M80,50 L56,62 L56,82 C56,95.6 66.4,108.4 80,112 C93.6,108.4 104,95.6 104,82 L104,62 Z"/>
+
+    <!-- Lock body -->
+    <path
+        android:fillColor="#00C4FF"
+        android:pathData="M68,80 L68,92 Q68,96 72,96 L88,96 Q92,96 92,92 L92,80 Q92,76 88,76 L72,76 Q68,76 68,80 Z"/>
+
+    <!-- Lock shackle (arc) -->
+    <path
+        android:fillColor="#00C4FF"
+        android:pathData="M72,76 L72,70 Q72,62 80,62 Q88,62 88,70 L88,76"
+        android:strokeColor="#00C4FF"
+        android:strokeWidth="4.5"
+        android:fillAlpha="0"/>
+
+    <!-- Lock keyhole circle -->
+    <path
+        android:fillColor="#001A33"
+        android:pathData="M80,82 m-4,0 a4,4 0,1,0 8,0 a4,4 0,1,0 -8,0"/>
+
+    <!-- Lock keyhole slot -->
+    <path
+        android:fillColor="#001A33"
+        android:pathData="M78,85 L82,85 L83,92 L77,92 Z"/>
+
+    <!-- Cyan glow dots top-left -->
+    <path
+        android:fillColor="#00C4FF"
+        android:fillAlpha="0.7"
+        android:pathData="M38,44 m-3,0 a3,3 0,1,0 6,0 a3,3 0,1,0 -6,0"/>
+
+    <!-- Cyan glow dot top-right -->
+    <path
+        android:fillColor="#00C4FF"
+        android:fillAlpha="0.5"
+        android:pathData="M122,44 m-2,0 a2,2 0,1,0 4,0 a2,2 0,1,0 -4,0"/>
+
+    <!-- Cyan glow dot bottom-left -->
+    <path
+        android:fillColor="#0099FF"
+        android:fillAlpha="0.4"
+        android:pathData="M36,118 m-2,0 a2,2 0,1,0 4,0 a2,2 0,1,0 -4,0"/>
+
+    <!-- Cyan glow dot bottom-right -->
+    <path
+        android:fillColor="#00C4FF"
+        android:fillAlpha="0.6"
+        android:pathData="M124,116 m-3,0 a3,3 0,1,0 6,0 a3,3 0,1,0 -6,0"/>
+
+    <!-- Small star sparkle left -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.8"
+        android:pathData="M34,78 L35.5,81 L39,80 L35.5,83 L34,86 L32.5,83 L29,80 L32.5,81 Z"/>
+
+    <!-- Small star sparkle right -->
+    <path
+        android:fillColor="#00EEFF"
+        android:fillAlpha="0.6"
+        android:pathData="M126,75 L127,77.5 L130,76 L127,79.5 L126,82 L125,79.5 L122,76 L125,77.5 Z"/>
+
+    <!-- Horizontal scan line (futuristic effect) -->
+    <path
+        android:fillColor="#1100C4FF"
+        android:pathData="M26,80 L134,80 L134,82 L26,82 Z"/>
+
+</vector>

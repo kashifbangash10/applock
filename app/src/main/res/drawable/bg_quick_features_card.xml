@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- LAYER 1: Ultra-dark shadow — creates floating card depth -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#020810" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+
+    <!-- LAYER 2: Glass gradient surface -->
+    <item android:left="1dp" android:right="1dp" android:top="1dp" android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#0C1A2C"
+                android:endColor="#070D1A" />
+            <corners android:radius="25dp" />
+        </shape>
+    </item>
+
+    <!-- LAYER 3: Subtle cyan top shimmer -->
+    <item android:left="8dp" android:right="8dp" android:top="1dp" android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#0638BDF8"
+                android:endColor="#0038BDF8" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+
+    <!-- LAYER 4: Hair-thin steel cyan border -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000" />
+            <stroke android:width="0.8dp" android:color="#163050" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+
+</layer-list>

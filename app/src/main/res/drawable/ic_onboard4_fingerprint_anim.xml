@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Animated Fingerprint Scan Icon for Onboarding Page 4 - Full Security -->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="80dp"
+            android:height="80dp"
+            android:viewportWidth="80"
+            android:viewportHeight="80">
+
+            <!-- Outer glow ring - Emerald/Teal theme for success -->
+            <group
+                android:name="outer_ring"
+                android:pivotX="40"
+                android:pivotY="40"
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                android:alpha="0.5">
+                <path
+                    android:fillColor="#2210B981"
+                    android:pathData="M40,2 A38,38,0,1,1,39.99,2 Z" />
+            </group>
+
+            <!-- Scan line (horizontal sweep) -->
+            <group
+                android:name="scan_line"
+                android:translateY="0">
+                <path
+                    android:fillColor="#3010B981"
+                    android:pathData="M14,40 L66,40 L66,42 L14,42 Z" />
+            </group>
+
+            <!-- Fingerprint arcs - outer -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#10B981"
+                android:strokeWidth="2"
+                android:strokeLineCap="round"
+                android:pathData="M16,40 Q16,20 40,14 Q64,20 64,40 Q64,56 40,64 Q18,58 16,40" />
+
+            <!-- Fingerprint arc 2 -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#10B981"
+                android:strokeWidth="2"
+                android:strokeLineCap="round"
+                android:pathData="M22,40 Q22,26 40,21 Q58,26 58,40 Q58,52 40,57 Q24,52 22,40" />
+
+            <!-- Fingerprint arc 3 -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#10B981"
+                android:strokeWidth="2"
+                android:strokeLineCap="round"
+                android:pathData="M28,40 Q28,30 40,27 Q52,30 52,40 Q52,48 40,51 Q29,49 28,40" />
+
+            <!-- Fingerprint arc 4 -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#10B981"
+                android:strokeWidth="1.8"
+                android:strokeLineCap="round"
+                android:pathData="M34,38 Q34,33 40,32 Q46,33 46,38 Q46,44 40,46 Q35,44 34,38" />
+
+            <!-- Center dot -->
+            <group
+                android:name="center_dot"
+                android:pivotX="40"
+                android:pivotY="40"
+                android:alpha="1.0">
+                <path
+                    android:fillColor="#10B981"
+                    android:pathData="M40,40 m-3,0 a3,3,0,1,1,6,0 a3,3,0,1,1,-6,0" />
+            </group>
+
+            <!-- Corner scan brackets - top left -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#10B981"
+                android:strokeWidth="2.5"
+                android:strokeLineCap="round"
+                android:pathData="M14,22 L14,14 L22,14" />
+
+            <!-- Corner scan brackets - top right -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#10B981"
+                android:strokeWidth="2.5"
+                android:strokeLineCap="round"
+                android:pathData="M58,14 L66,14 L66,22" />
+
+            <!-- Corner scan brackets - bottom left -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#10B981"
+                android:strokeWidth="2.5"
+                android:strokeLineCap="round"
+                android:pathData="M14,58 L14,66 L22,66" />
+
+            <!-- Corner scan brackets - bottom right -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#10B981"
+                android:strokeWidth="2.5"
+                android:strokeLineCap="round"
+                android:pathData="M58,66 L66,66 L66,58" />
+
+            <!-- Check mark (success indicator) -->
+            <group
+                android:name="check_mark"
+                android:alpha="0.0">
+                <path
+                    android:fillColor="#00000000"
+                    android:strokeColor="#10B981"
+                    android:strokeWidth="3"
+                    android:strokeLineCap="round"
+                    android:strokeLineJoin="round"
+                    android:pathData="M28,40 L36,48 L52,32" />
+            </group>
+
+        </vector>
+    </aapt:attr>
+
+    <!-- Outer ring pulse -->
+    <target android:name="outer_ring">
+        <aapt:attr name="android:animation">
+            <set android:ordering="together">
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.12"
+                    android:duration="1600"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.12"
+                    android:duration="1600"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+                <objectAnimator
+                    android:propertyName="alpha"
+                    android:valueFrom="0.5"
+                    android:valueTo="0.9"
+                    android:duration="1600"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- Scan line sweep up/down -->
+    <target android:name="scan_line">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="translateY"
+                    android:valueFrom="-24"
+                    android:valueTo="22"
+                    android:duration="1800"
+                    android:interpolator="@android:interpolator/linear" />
+                <objectAnimator
+                    android:propertyName="translateY"
+                    android:valueFrom="22"
+                    android:valueTo="-24"
+                    android:duration="1800"
+                    android:interpolator="@android:interpolator/linear" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- Center dot pulse -->
+    <target android:name="center_dot">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="alpha"
+                android:valueFrom="0.3"
+                android:valueTo="1.0"
+                android:duration="800"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:interpolator="@android:interpolator/accelerate_decelerate" />
+        </aapt:attr>
+    </target>
+
+    <!-- Check mark appear/disappear loop -->
+    <target android:name="check_mark">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="alpha"
+                    android:valueFrom="0.0"
+                    android:valueTo="0.0"
+                    android:duration="3000" />
+                <objectAnimator
+                    android:propertyName="alpha"
+                    android:valueFrom="0.0"
+                    android:valueTo="1.0"
+                    android:duration="400"
+                    android:interpolator="@android:interpolator/fast_out_slow_in" />
+                <objectAnimator
+                    android:propertyName="alpha"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.0"
+                    android:duration="600" />
+                <objectAnimator
+                    android:propertyName="alpha"
+                    android:valueFrom="1.0"
+                    android:valueTo="0.0"
+                    android:duration="400" />
+            </set>
+        </aapt:attr>
+    </target>
+
+</animated-vector>

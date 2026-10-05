@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base premium gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:startColor="#1B5E20"
+                android:centerColor="#FFEB3B"
+                android:endColor="#0288D1"
+                android:angle="135" />
+        </shape>
+    </item>
+    <!-- Overlay dynamic glow -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="250dp"
+                android:startColor="#40FFFFFF"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base App Theme (DayNight dynamically switching) -->
+    <style name="Theme.AppLockerApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/primary_variant</item>
+        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="android:windowBackground">@color/bg_main</item>
+
+        <!-- Status & Navigation Bar -->
+        <item name="android:statusBarColor">@color/bg_main</item>
+        <item name="android:navigationBarColor">@color/bg_main</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Switches styling -->
+        <item name="materialSwitchStyle">@style/Widget.AppLockerApp.Switch</item>
+        <item name="switchStyle">@style/Widget.AppLockerApp.Switch</item>
+
+        <!-- Opt out of forced edge-to-edge on Android 15+ (API 35) -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+    </style>
+
+    <!-- Splash Screen Theme - Ice Crystal dark navy background (#020D1A) -->
+    <style name="Theme.AppLockerApp.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/bg_appicon</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+
+    <!-- ActionBar Theme Overlay -->
+    <style name="ThemeOverlay.AppLockerApp.ActionBar" parent="ThemeOverlay.Material3.ActionBar">
+        <item name="colorControlNormal">@color/text_primary</item>
+    </style>
+
+    <!-- Popup Menu Theme Overlay -->
+    <style name="ThemeOverlay.AppLockerApp.PopupMenu" parent="ThemeOverlay.Material3">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:background">@color/bg_surface</item>
+    </style>
+
+    <!-- Lock / Unlock BottomSheetDialog Theme -->
+    <style name="LockDialogTheme" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/LockDialogBottomSheetStyle</item>
+    </style>
+
+    <style name="LockDialogBottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/bg_surface</item>
+        <item name="android:elevation">16dp</item>
+        <item name="shapeAppearance">@style/LockDialogShapeAppearance</item>
+    </style>
+
+    <style name="LockDialogShapeAppearance" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- Translucent theme for transparent helper activities -->
+    <style name="Theme.AppLockerApp.Translucent" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <!-- Terms & Conditions dialog theme -->
+    <style name="TermsDialogTheme" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="colorSurface">@color/bg_surface</item>
+    </style>
+
+    <!-- Shared App Locker Theme Widgets -->
+    <style name="Widget.AppLockerApp.CardElevated" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/bg_card_elevated</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/card_border</item>
+    </style>
+
+    <style name="Widget.AppLockerApp.Button.Primary3D" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/btn_gradient_primary_3d</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="Widget.AppLockerApp.Pill.Active" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/pill_active_gradient</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="Widget.AppLockerApp.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="trackTint">@color/switch_track_tint</item>
+        <item name="thumbTint">@color/switch_thumb_tint</item>
+    </style>
+
+</resources>
+

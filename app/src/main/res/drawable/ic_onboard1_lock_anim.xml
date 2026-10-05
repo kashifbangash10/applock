@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Animated Shield-Lock Icon for Onboarding Page 1 - uses inline animations -->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="80dp"
+            android:height="80dp"
+            android:viewportWidth="80"
+            android:viewportHeight="80">
+
+            <!-- Outer pulsing glow ring -->
+            <group
+                android:name="outer_ring"
+                android:pivotX="40"
+                android:pivotY="40"
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                android:alpha="0.4">
+                <path
+                    android:fillColor="#2038BDF8"
+                    android:pathData="M40,2 A38,38,0,1,1,39.99,2 Z" />
+            </group>
+
+            <!-- Middle ring -->
+            <group
+                android:name="mid_ring"
+                android:pivotX="40"
+                android:pivotY="40"
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                android:alpha="0.25">
+                <path
+                    android:fillColor="#1538BDF8"
+                    android:pathData="M40,8 A32,32,0,1,1,39.99,8 Z" />
+            </group>
+
+            <!-- Shield background -->
+            <path
+                android:fillColor="#1238BDF8"
+                android:pathData="M40,13 L59,21.5 L59,40 Q59,57 40,65.5 Q21,57 21,40 L21,21.5 Z" />
+
+            <!-- Shield border -->
+            <path
+                android:fillColor="#00000000"
+                android:strokeColor="#38BDF8"
+                android:strokeWidth="1.8"
+                android:pathData="M40,13 L59,21.5 L59,40 Q59,57 40,65.5 Q21,57 21,40 L21,21.5 Z" />
+
+            <!-- Lock shackle group (moves up/down) -->
+            <group
+                android:name="shackle"
+                android:translateY="0">
+                <path
+                    android:fillColor="#00000000"
+                    android:strokeColor="#38BDF8"
+                    android:strokeWidth="2.5"
+                    android:strokeLineCap="round"
+                    android:pathData="M32,38 L32,33 Q32,26 40,26 Q48,26 48,33 L48,38" />
+            </group>
+
+            <!-- Lock body -->
+            <path
+                android:fillColor="#38BDF8"
+                android:pathData="M30,37 Q29,37 29,38.5 L29,50.5 Q29,52 30,52 L50,52 Q51,52 51,50.5 L51,38.5 Q51,37 50,37 Z" />
+
+            <!-- Keyhole circle -->
+            <group
+                android:name="keyhole_glow"
+                android:alpha="1.0">
+                <path
+                    android:fillColor="#070E1C"
+                    android:pathData="M40,40 m-3.5,0 a3.5,3.5,0,1,1,7,0 a3.5,3.5,0,1,1,-7,0" />
+                <!-- Keyhole stem -->
+                <path
+                    android:fillColor="#070E1C"
+                    android:pathData="M38.5,43.5 L38,48 L42,48 L41.5,43.5 Z" />
+            </group>
+
+            <!-- Sparkle dots -->
+            <path
+                android:name="sparkle_tl"
+                android:fillColor="#60BDF8"
+                android:pathData="M19,20 m-1.5,0 a1.5,1.5,0,1,1,3,0 a1.5,1.5,0,1,1,-3,0" />
+            <path
+                android:name="sparkle_tr"
+                android:fillColor="#60BDF8"
+                android:pathData="M61,20 m-1.5,0 a1.5,1.5,0,1,1,3,0 a1.5,1.5,0,1,1,-3,0" />
+            <path
+                android:name="sparkle_br"
+                android:fillColor="#4080F8"
+                android:pathData="M62,55 m-1,0 a1,1,0,1,1,2,0 a1,1,0,1,1,-2,0" />
+
+        </vector>
+    </aapt:attr>
+
+    <!-- Outer ring pulse -->
+    <target android:name="outer_ring">
+        <aapt:attr name="android:animation">
+            <set android:ordering="together">
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.12"
+                    android:duration="1400"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.12"
+                    android:duration="1400"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+                <objectAnimator
+                    android:propertyName="alpha"
+                    android:valueFrom="0.4"
+                    android:valueTo="0.85"
+                    android:duration="1400"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/accelerate_decelerate" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- Middle ring counter-pulse -->
+    <target android:name="mid_ring">
+        <aapt:attr name="android:animation">
+            <set android:ordering="together">
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.07"
+                    android:duration="1000"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/fast_out_slow_in" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.07"
+                    android:duration="1000"
+                    android:repeatCount="infinite"
+                    android:repeatMode="reverse"
+                    android:interpolator="@android:interpolator/fast_out_slow_in" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- Shackle bounce -->
+    <target android:name="shackle">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="translateY"
+                android:valueFrom="0"
+                android:valueTo="-5"
+                android:duration="750"
+                android:startOffset="200"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:interpolator="@android:interpolator/fast_out_slow_in" />
+        </aapt:attr>
+    </target>
+
+    <!-- Keyhole glow -->
+    <target android:name="keyhole_glow">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="alpha"
+                android:valueFrom="0.5"
+                android:valueTo="1.0"
+                android:duration="600"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:interpolator="@android:interpolator/accelerate_decelerate" />
+        </aapt:attr>
+    </target>
+
+</animated-vector>

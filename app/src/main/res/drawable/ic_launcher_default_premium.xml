@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <!-- Outer metallic shield background with dark navy/carbon gradient -->
+  <path
+      android:pathData="M54,8 C76,8 90,20 90,44 C90,74 54,100 54,100 C54,100 18,74 18,44 C18,20 32,8 54,8 Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="54"
+          android:startY="8"
+          android:endX="54"
+          android:endY="100"
+          android:type="linear">
+        <item android:offset="0.0" android:color="#FF1A237E"/>
+        <item android:offset="0.5" android:color="#FF0D47A1"/>
+        <item android:offset="1.0" android:color="#FF01579B"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <!-- Glow Inner Border -->
+  <path
+      android:pathData="M54,14 C71.5,14 83,23.5 83,44 C83,69 54,91 54,91 C54,91 25,69 25,44 C25,23.5 36.5,14 54,14 Z"
+      android:strokeWidth="2.5"
+      android:strokeColor="#FF00E5FF"/>
+  <!-- Shield emblem inside -->
+  <path
+      android:pathData="M54,26 C62,26 68,31 68,42 C68,56 54,72 54,72 C54,72 40,56 40,42 C40,31 46,26 54,26 Z"
+      android:fillColor="#B3001858"/>
+  <!-- Glowing lock/key emblem in center -->
+  <path
+      android:pathData="M54,34 C50.7,34 48,36.7 48,40 C48,42.5 49.5,44.6 51.7,45.5 L50,56 L54,58 L58,56 L56.3,45.5 C58.5,44.6 60,42.5 60,40 C60,36.7 57.3,34 54,34 Z"
+      android:fillColor="#FFFFFFFF"/>
+</vector>

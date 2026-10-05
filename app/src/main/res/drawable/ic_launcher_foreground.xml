@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- ===== OUTER GLOW AURA - Steel Cyan ===== -->
+    <path
+        android:fillColor="#1538BDF8"
+        android:pathData="M54,8 C29.7,8 10,27.7 10,52 C10,76.3 29.7,96 54,96 C78.3,96 98,76.3 98,52 C98,27.7 78.3,8 54,8 Z"/>
+
+    <!-- Outer ring glow layer 2 -->
+    <path
+        android:fillColor="#220284C7"
+        android:pathData="M54,14 C32.9,14 16,30.9 16,52 C16,73.1 32.9,90 54,90 C75.1,90 92,73.1 92,52 C92,30.9 75.1,14 54,14 Z"/>
+
+    <!-- ===== DARK DEEP BG CIRCLE ===== -->
+    <path
+        android:fillColor="#040D14"
+        android:pathData="M54,20 C36.3,20 22,34.3 22,52 C22,69.7 36.3,84 54,84 C71.7,84 86,69.7 86,52 C86,34.3 71.7,20 54,20 Z"/>
+
+    <!-- Inner bg slight gradient - darker center -->
+    <path
+        android:fillColor="#071520"
+        android:pathData="M54,24 C38.5,24 26,36.5 26,52 C26,67.5 38.5,80 54,80 C69.5,80 82,67.5 82,52 C82,36.5 69.5,24 54,24 Z"/>
+
+    <!-- ===== HEXAGONAL PATTERN OVERLAY (subtle) ===== -->
+    <!-- Hex cell 1 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M54,26 L58,28.3 L58,33 L54,35.3 L50,33 L50,28.3 Z"/>
+    <!-- Hex cell 2 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M62,30 L66,32.3 L66,37 L62,39.3 L58,37 L58,32.3 Z"/>
+    <!-- Hex cell 3 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M46,30 L50,32.3 L50,37 L46,39.3 L42,37 L42,32.3 Z"/>
+    <!-- Hex cell 4 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M70,38 L74,40.3 L74,45 L70,47.3 L66,45 L66,40.3 Z"/>
+    <!-- Hex cell 5 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M38,38 L42,40.3 L42,45 L38,47.3 L34,45 L34,40.3 Z"/>
+    <!-- Hex cell 6 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M70,56 L74,58.3 L74,63 L70,65.3 L66,63 L66,58.3 Z"/>
+    <!-- Hex cell 7 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M38,56 L42,58.3 L42,63 L38,65.3 L34,63 L34,58.3 Z"/>
+    <!-- Hex cell 8 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M62,66 L66,68.3 L66,73 L62,75.3 L58,73 L58,68.3 Z"/>
+    <!-- Hex cell 9 -->
+    <path
+        android:fillColor="#0838BDF8"
+        android:pathData="M46,66 L50,68.3 L50,73 L46,75.3 L42,73 L42,68.3 Z"/>
+
+    <!-- ===== SHIELD BODY - Steel Cyan ===== -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M54,27 L29,38 L29,54 C29,67.5 40,78.5 54,82 C68,78.5 79,67.5 79,54 L79,38 Z"/>
+
+    <!-- Shield inner gradient dark -->
+    <path
+        android:fillColor="#0369A1"
+        android:pathData="M54,31 L32,41 L32,54 C32,65.5 42,75 54,78 C66,75 76,65.5 76,54 L76,41 Z"/>
+
+    <!-- Shield glossy highlight top -->
+    <path
+        android:fillColor="#447DD3FC"
+        android:pathData="M54,32 L33,41.5 L33,49 L54,44 Z"/>
+
+    <!-- Shield side highlight left -->
+    <path
+        android:fillColor="#2238BDF8"
+        android:pathData="M33,41.5 L33,54 C33,60 35,66 39,70 L33,58 Z"/>
+
+    <!-- Shield dark inner field -->
+    <path
+        android:fillColor="#050E14"
+        android:pathData="M54,36 L36,45 L36,54 C36,63.5 44,72 54,74.5 C64,72 72,63.5 72,54 L72,45 Z"/>
+
+    <!-- Shield inner glow ring -->
+    <path
+        android:fillColor="#1538BDF8"
+        android:pathData="M54,38 L38,46.5 L38,54 C38,62.5 45,70 54,72 C63,70 70,62.5 70,54 L70,46.5 Z"/>
+
+    <!-- ===== LOCK BODY - Steel Cyan ===== -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M45,53 L45,64 Q45,67 48,67 L60,67 Q63,67 63,64 L63,53 Q63,50 60,50 L48,50 Q45,50 45,53 Z"/>
+
+    <!-- Lock body inner shadow -->
+    <path
+        android:fillColor="#0EA5E9"
+        android:pathData="M46.5,53.5 L46.5,64 Q46.5,65.5 48,65.5 L60,65.5 Q61.5,65.5 61.5,64 L61.5,53.5 Q61.5,52 60,52 L48,52 Q46.5,52 46.5,53.5 Z"/>
+
+    <!-- Lock body top highlight gleam -->
+    <path
+        android:fillColor="#667DD3FC"
+        android:pathData="M46.5,52 L61.5,52 L61.5,54 Q54,53 46.5,54 Z"/>
+
+    <!-- ===== LOCK SHACKLE - Steel Cyan ===== -->
+    <path
+        android:pathData="M49,50 L49,45 Q49,38.5 54,38.5 Q59,38.5 59,45 L59,50"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="4"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+    <!-- Shackle inner highlight -->
+    <path
+        android:pathData="M50.5,50 L50.5,45 Q50.5,40 54,40 Q57.5,40 57.5,45 L57.5,50"
+        android:strokeColor="#7DD3FC"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"/>
+
+    <!-- ===== KEYHOLE CIRCLE ===== -->
+    <path
+        android:fillColor="#040D14"
+        android:pathData="M54,55.5 m-3,0 a3,3 0,1,0 6,0 a3,3 0,1,0 -6,0"/>
+
+    <!-- Keyhole slot -->
+    <path
+        android:fillColor="#040D14"
+        android:pathData="M52.8,58 L55.2,58 L56,64.5 L52,64.5 Z"/>
+
+    <!-- Keyhole inner glow ring -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#2238BDF8"
+        android:strokeWidth="1"
+        android:pathData="M54,55.5 m-3.5,0 a3.5,3.5 0,1,0 7,0 a3.5,3.5 0,1,0 -7,0"/>
+
+    <!-- ===== SPARKLE DOTS - Steel Cyan ===== -->
+    <!-- Top-left sparkle large -->
+    <path
+        android:fillColor="#38BDF8"
+        android:fillAlpha="0.8"
+        android:pathData="M25,27 m-3,0 a3,3 0,1,0 6,0 a3,3 0,1,0 -6,0"/>
+
+    <!-- Top-right sparkle -->
+    <path
+        android:fillColor="#7DD3FC"
+        android:fillAlpha="0.65"
+        android:pathData="M83,25 m-2,0 a2,2 0,1,0 4,0 a2,2 0,1,0 -4,0"/>
+
+    <!-- Bottom-left sparkle -->
+    <path
+        android:fillColor="#0284C7"
+        android:fillAlpha="0.55"
+        android:pathData="M23,79 m-2,0 a2,2 0,1,0 4,0 a2,2 0,1,0 -4,0"/>
+
+    <!-- Bottom-right sparkle -->
+    <path
+        android:fillColor="#38BDF8"
+        android:fillAlpha="0.70"
+        android:pathData="M85,78 m-2.5,0 a2.5,2.5 0,1,0 5,0 a2.5,2.5 0,1,0 -5,0"/>
+
+    <!-- Mid-left sparkle small -->
+    <path
+        android:fillColor="#BAE6FD"
+        android:fillAlpha="0.50"
+        android:pathData="M18,40 m-1.5,0 a1.5,1.5 0,1,0 3,0 a1.5,1.5 0,1,0 -3,0"/>
+
+    <!-- Mid-right sparkle small -->
+    <path
+        android:fillColor="#38BDF8"
+        android:fillAlpha="0.45"
+        android:pathData="M90,62 m-1.5,0 a1.5,1.5 0,1,0 3,0 a1.5,1.5 0,1,0 -3,0"/>
+
+    <!-- ===== STAR SPARKLES - 4-point stars ===== -->
+    <!-- Left star -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.90"
+        android:pathData="M19,52 L20.3,55.2 L23.5,52 L20.3,55.8 L19,59 L17.7,55.8 L14.5,52 L17.7,55.2 Z"/>
+
+    <!-- Right star -->
+    <path
+        android:fillColor="#7DD3FC"
+        android:fillAlpha="0.75"
+        android:pathData="M89,48 L90,50.5 L93,48 L90,51.5 L89,54 L88,51.5 L85,48 L88,50.5 Z"/>
+
+    <!-- Top star small -->
+    <path
+        android:fillColor="#38BDF8"
+        android:fillAlpha="0.70"
+        android:pathData="M54,14 L54.8,16 L57,14 L54.8,16.5 L54,18.5 L53.2,16.5 L51,14 L53.2,16 Z"/>
+
+    <!-- ===== SCAN LINE EFFECT ===== -->
+    <path
+        android:fillColor="#0D38BDF8"
+        android:pathData="M22,52 L86,52 L86,53.8 L22,53.8 Z"/>
+
+    <!-- Secondary scan line -->
+    <path
+        android:fillColor="#080284C7"
+        android:pathData="M26,58 L82,58 L82,59.2 L26,59.2 Z"/>
+
+    <!-- ===== CIRCUIT DOTS BOTTOM ===== -->
+    <path
+        android:fillColor="#1538BDF8"
+        android:pathData="M35,87 m-1.5,0 a1.5,1.5 0,1,0 3,0 a1.5,1.5 0,1,0 -3,0"/>
+    <path
+        android:fillColor="#1538BDF8"
+        android:pathData="M73,87 m-1.5,0 a1.5,1.5 0,1,0 3,0 a1.5,1.5 0,1,0 -3,0"/>
+    <path
+        android:fillColor="#1538BDF8"
+        android:pathData="M54,92 m-1.5,0 a1.5,1.5 0,1,0 3,0 a1.5,1.5 0,1,0 -3,0"/>
+
+</vector>

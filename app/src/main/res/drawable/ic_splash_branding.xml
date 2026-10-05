@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="60dp"
+    android:viewportWidth="200"
+    android:viewportHeight="60">
+
+    <!-- AppLocker text branding -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M10,15 L10,45 L18,45 L18,33 L26,33 L26,45 L34,45 L34,15 L26,15 L26,26 L18,26 L18,15 Z" />
+
+</vector>

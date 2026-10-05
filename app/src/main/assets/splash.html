@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>IceLock</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: #020D1A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  canvas#bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+  }
+
+  .splash-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .app-icon-wrap {
+    width: 112px; height: 112px;
+    background: #021018;
+    border-radius: 28px;
+    border: 1.5px solid #00CFFF;
+    box-shadow:
+      0 0 0 1px rgba(0,207,255,0.1),
+      0 0 30px rgba(0,207,255,0.3),
+      0 0 70px rgba(0,207,255,0.12),
+      inset 0 0 20px rgba(0,207,255,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    animation: iconPop 1.4s cubic-bezier(.34,1.56,.64,1) forwards;
+  }
+
+  @keyframes iconPop {
+    from { transform: scale(0.2); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+
+  canvas#icon { display: block; }
+
+  .app-name {
+    font-size: 28px;
+    font-weight: 800;
+    color: #00CFFF;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 24px rgba(0,207,255,0.6);
+    animation: fadeUp 1.5s ease forwards;
+  }
+
+  .app-tagline {
+    font-size: 11px;
+    color: #A0E8FF;
+    opacity: 0.55;
+    letter-spacing: 3.5px;
+    margin-top: 9px;
+    text-transform: uppercase;
+    animation: fadeUp 1.7s ease forwards;
+  }
+
+  .btn-get-started {
+    display: none;
+    margin-top: 28px;
+    padding: 14px 48px;
+    background: linear-gradient(135deg, #0052D4 0%, #4364F7 50%, #00CFFF 100%);
+    border: none;
+    border-radius: 32px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 24px rgba(0,207,255,0.45), 0 4px 20px rgba(0,82,212,0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+  }
+  .btn-get-started.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .btn-get-started:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 12px rgba(0,207,255,0.3);
+  }
+
+  .progress-bar-container {
+    position: relative;
+    width: 240px;
+    height: 4px;
+    background: rgba(0, 207, 255, 0.08);
+    border-radius: 2px;
+    overflow: visible;
+    margin-top: 22px;
+    box-shadow: 0 0 10px rgba(0, 207, 255, 0.05);
+    animation: fadeUp 2s ease forwards;
+  }
+
+  .splash-subtitle {
+    font-size: 13px;
+    color: #A0E8FF;
+    opacity: 0.8;
+    letter-spacing: 1.5px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+    text-align: center;
+    animation: fadeUp 1.8s ease forwards;
+  }
+
+  .progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0052D4, #4364F7, #6FB1FC, #00CFFF);
+    border-radius: 2px;
+    box-shadow: 0 0 12px #00CFFF, 0 0 4px #00CFFF;
+    animation: fillProgress 3.0s cubic-bezier(0.1, 0.4, 0.1, 1) forwards;
+  }
+
+  .progress-bar-glow-dot {
+    position: absolute;
+    top: -20px;
+    left: 0%;
+    width: 44px;
+    height: 44px;
+    margin-left: -22px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,207,255,0.75) 0%, rgba(0,207,255,0.25) 35%, rgba(0,207,255,0.08) 55%, rgba(0,207,255,0) 75%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: glowMove 3.0s cubic-bezier(0.1, 0.4, 0.1, 1) forwards;
+  }
+
+  @keyframes fillProgress {
+    0%   { width: 0%; }
+    100% { width: 100%; }
+  }
+
+  @keyframes glowMove {
+    0%   { left: 0%; }
+    100% { left: 100%; }
+  }
+
+  .bottom-strip {
+    position: fixed;
+    bottom: 30px; left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 5;
+    animation: fadeUp 2.2s ease forwards;
+  }
+
+  .version {
+    font-size: 10px;
+    color: #A0E8FF;
+    opacity: 0.28;
+    letter-spacing: 1.5px;
+  }
+
+  .home-bar {
+    width: 90px; height: 4px;
+    background: #A0E8FF;
+    border-radius: 4px;
+    opacity: 0.15;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="splash-content">
+  <div class="app-icon-wrap">
+    <canvas id="icon" width="96" height="96"></canvas>
+  </div>
+  <div class="app-name">AppLock</div>
+  <div class="app-tagline">Secure · Fast · Smart</div>
+  <div class="splash-subtitle">lock your app and protect your privacy</div>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill"></div>
+    <div class="progress-bar-glow-dot"></div>
+  </div>
+  <button class="btn-get-started" id="btnGetStarted" onclick="handleGetStarted()">Get Started</button>
+</div>
+
+<div class="bottom-strip">
+  <div class="home-bar"></div>
+</div>
+
+<script>
+const bg   = document.getElementById('bg');
+const bctx = bg.getContext('2d');
+const ic   = document.getElementById('icon');
+const ictx = ic.getContext('2d');
+
+function resize() {
+  bg.width  = window.innerWidth;
+  bg.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+let a1 = 0, a2 = 0, t = 0;
+
+// ══════════════════════════════════════════
+//  BACKGROUND
+// ══════════════════════════════════════════
+function drawBg() {
+  const W = bg.width, H = bg.height;
+  const CX = W / 2, CY = H * 0.42;
+  bctx.clearRect(0, 0, W, H);
+
+  // Floating particles
+  for (let i = 0; i < 24; i++) {
+    const px = ((i * 137 + t * 0.3) % W);
+    const py = ((i * 89  + t * 0.2) % H);
+    const a  = 0.07 + 0.16 * Math.abs(Math.sin(t * 0.04 + i));
+    bctx.save();
+    bctx.fillStyle = '#A0E8FF';
+    bctx.globalAlpha = a;
+    bctx.beginPath();
+    bctx.arc(px, py, 1.5, 0, Math.PI * 2);
+    bctx.fill();
+    bctx.restore();
+  }
+
+  // Layer 1 — slow CW snowflake
+  bctx.save();
+  bctx.translate(CX, CY);
+  bctx.rotate(a1);
+  [0, 60, 120].forEach(deg => {
+    const r = deg * Math.PI / 180;
+    bctx.save();
+    bctx.strokeStyle = '#A0E8FF'; bctx.lineWidth = 1.2; bctx.globalAlpha = 0.18;
+    bctx.beginPath();
+    bctx.moveTo(Math.cos(r) * -120, Math.sin(r) * -120);
+    bctx.lineTo(Math.cos(r) *  120, Math.sin(r) *  120);
+    bctx.stroke();
+    [1, -1].forEach(s => {
+      const ex = Math.cos(r) * s * 120, ey = Math.sin(r) * s * 120;
+      bctx.fillStyle = '#A0E8FF'; bctx.globalAlpha = 0.4;
+      bctx.beginPath(); bctx.arc(ex, ey, 5.5, 0, Math.PI * 2); bctx.fill();
+      const pr = r + Math.PI / 2;
+      bctx.strokeStyle = '#A0E8FF'; bctx.lineWidth = 1; bctx.globalAlpha = 0.18;
+      bctx.beginPath();
+      bctx.moveTo(ex + Math.cos(pr)*13, ey + Math.sin(pr)*13);
+      bctx.lineTo(ex - Math.cos(pr)*13, ey - Math.sin(pr)*13);
+      bctx.stroke();
+      const ex2 = Math.cos(r)*s*80, ey2 = Math.sin(r)*s*80;
+      bctx.beginPath();
+      bctx.moveTo(ex2+Math.cos(pr)*9, ey2+Math.sin(pr)*9);
+      bctx.lineTo(ex2-Math.cos(pr)*9, ey2-Math.sin(pr)*9);
+      bctx.stroke();
+    });
+    bctx.restore();
+  });
+  bctx.restore();
+
+  // Layer 2 — faster CCW cyan
+  bctx.save();
+  bctx.translate(CX, CY);
+  bctx.rotate(a2);
+  [30, 90, 150].forEach(deg => {
+    const r = deg * Math.PI / 180;
+    bctx.save();
+    bctx.strokeStyle = '#00CFFF'; bctx.lineWidth = 0.9; bctx.globalAlpha = 0.22;
+    bctx.beginPath();
+    bctx.moveTo(Math.cos(r)*-90, Math.sin(r)*-90);
+    bctx.lineTo(Math.cos(r)* 90, Math.sin(r)* 90);
+    bctx.stroke();
+    [1, -1].forEach(s => {
+      bctx.fillStyle = '#00CFFF'; bctx.globalAlpha = 0.45;
+      bctx.beginPath(); bctx.arc(Math.cos(r)*s*90, Math.sin(r)*s*90, 4, 0, Math.PI*2); bctx.fill();
+    });
+    bctx.restore();
+  });
+  bctx.restore();
+
+  // Pulsing rings
+  const rA = 0.07 + 0.06 * Math.sin(t * 0.05);
+  bctx.save();
+  bctx.strokeStyle = '#00CFFF'; bctx.lineWidth = 1; bctx.globalAlpha = rA;
+  bctx.beginPath(); bctx.arc(CX, CY, 152, 0, Math.PI * 2); bctx.stroke();
+  bctx.globalAlpha = rA * 0.5;
+  bctx.beginPath(); bctx.arc(CX, CY, 116, 0, Math.PI * 2); bctx.stroke();
+  bctx.restore();
+
+  // Radial glow
+  const gA = 0.03 + 0.03 * Math.sin(t * 0.055);
+  const grad = bctx.createRadialGradient(CX, CY, 5, CX, CY, 148);
+  grad.addColorStop(0, `rgba(0,207,255,${gA * 4})`);
+  grad.addColorStop(1, 'rgba(2,13,26,0)');
+  bctx.save();
+  bctx.fillStyle = grad;
+  bctx.beginPath(); bctx.arc(CX, CY, 148, 0, Math.PI * 2); bctx.fill();
+  bctx.restore();
+}
+
+// ══════════════════════════════════════════
+//  ICON
+// ══════════════════════════════════════════
+function drawIcon() {
+  const W = 96, H = 96, CX = 48, CY = 40;
+  ictx.clearRect(0, 0, W, H);
+
+  // Snowflake layer 1
+  ictx.save(); ictx.translate(CX, CY); ictx.rotate(a1 * 2);
+  [0, 60, 120].forEach(deg => {
+    const r = deg * Math.PI / 180;
+    ictx.save();
+    ictx.strokeStyle = '#A0E8FF'; ictx.lineWidth = 1.3; ictx.globalAlpha = 0.48;
+    ictx.beginPath();
+    ictx.moveTo(Math.cos(r)*-32, Math.sin(r)*-32);
+    ictx.lineTo(Math.cos(r)* 32, Math.sin(r)* 32);
+    ictx.stroke();
+    [1, -1].forEach(s => {
+      ictx.fillStyle = '#A0E8FF'; ictx.globalAlpha = 0.68;
+      ictx.beginPath(); ictx.arc(Math.cos(r)*s*32, Math.sin(r)*s*32, 2.8, 0, Math.PI*2); ictx.fill();
+    });
+    ictx.restore();
+  });
+  ictx.restore();
+
+  // Snowflake layer 2
+  ictx.save(); ictx.translate(CX, CY); ictx.rotate(a2 * 1.5);
+  [30, 90, 150].forEach(deg => {
+    const r = deg * Math.PI / 180;
+    ictx.save();
+    ictx.strokeStyle = '#00CFFF'; ictx.lineWidth = 1; ictx.globalAlpha = 0.55;
+    ictx.beginPath();
+    ictx.moveTo(Math.cos(r)*-23, Math.sin(r)*-23);
+    ictx.lineTo(Math.cos(r)* 23, Math.sin(r)* 23);
+    ictx.stroke();
+    [1, -1].forEach(s => {
+      ictx.fillStyle = '#00CFFF'; ictx.globalAlpha = 0.65;
+      ictx.beginPath(); ictx.arc(Math.cos(r)*s*23, Math.sin(r)*s*23, 2.2, 0, Math.PI*2); ictx.fill();
+    });
+    ictx.restore();
+  });
+  ictx.restore();
+
+  // Lock body
+  const lx = 27, ly = CY + 14, lw = 42, lh = 28;
+  ictx.save();
+  ictx.fillStyle = '#021018';
+  ictx.strokeStyle = '#00CFFF'; ictx.lineWidth = 1.8;
+  ictx.shadowColor = '#00CFFF'; ictx.shadowBlur = 12;
+  ictx.beginPath();
+  ictx.moveTo(lx+8,ly); ictx.lineTo(lx+lw-8,ly);
+  ictx.quadraticCurveTo(lx+lw,ly,    lx+lw,ly+8);
+  ictx.lineTo(lx+lw,ly+lh-8);
+  ictx.quadraticCurveTo(lx+lw,ly+lh, lx+lw-8,ly+lh);
+  ictx.lineTo(lx+8,ly+lh);
+  ictx.quadraticCurveTo(lx,ly+lh,    lx,ly+lh-8);
+  ictx.lineTo(lx,ly+8);
+  ictx.quadraticCurveTo(lx,ly,       lx+8,ly);
+  ictx.closePath();
+  ictx.fill(); ictx.stroke();
+  ictx.restore();
+
+  // Lock shackle
+  ictx.save();
+  ictx.strokeStyle = '#00CFFF'; ictx.lineWidth = 3; ictx.lineCap = 'round';
+  ictx.shadowColor = '#00CFFF'; ictx.shadowBlur = 8;
+  ictx.beginPath();
+  ictx.moveTo(35,ly); ictx.lineTo(35,CY+6);
+  ictx.quadraticCurveTo(35,CY-5,CX,CY-5);
+  ictx.quadraticCurveTo(61,CY-5,61,CY+6);
+  ictx.lineTo(61,ly);
+  ictx.stroke();
+  ictx.restore();
+
+  // Keyhole (pulsing)
+  const kA = 0.82 + 0.18 * Math.sin(t * 0.1);
+  ictx.save();
+  ictx.fillStyle = '#00CFFF'; ictx.globalAlpha = kA;
+  ictx.shadowColor = '#00CFFF'; ictx.shadowBlur = 14;
+  ictx.beginPath(); ictx.arc(CX, ly+13, 5.5, 0, Math.PI*2); ictx.fill();
+  ictx.fillStyle = '#021018'; ictx.globalAlpha = 1; ictx.shadowBlur = 0;
+  ictx.beginPath(); ictx.arc(CX, ly+13, 2.3, 0, Math.PI*2); ictx.fill();
+  ictx.fillStyle = '#00CFFF'; ictx.globalAlpha = kA;
+  ictx.shadowColor = '#00CFFF'; ictx.shadowBlur = 8;
+  ictx.fillRect(CX-2.2, ly+13, 4.4, 8);
+  ictx.fillStyle = '#021018'; ictx.globalAlpha = 1; ictx.shadowBlur = 0;
+  ictx.fillRect(CX-1.2, ly+14.5, 2.4, 6.5);
+  ictx.restore();
+}
+
+// ══════════════════════════════════════════
+//  GET STARTED BUTTON
+// ══════════════════════════════════════════
+function handleGetStarted() {
+  if (window.Android && window.Android.onGetStartedClicked) {
+    window.Android.onGetStartedClicked();
+  }
+}
+
+setTimeout(function() {
+  const btn = document.getElementById('btnGetStarted');
+  if (btn) {
+    btn.style.display = 'block';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        btn.classList.add('visible');
+      });
+    });
+  }
+}, 3100);
+
+// ══════════════════════════════════════════
+//  LOOP
+// ══════════════════════════════════════════
+function loop() {
+  a1 += 0.006;
+  a2 -= 0.01;
+  t++;
+  drawBg();
+  drawIcon();
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>

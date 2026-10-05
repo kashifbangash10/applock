@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- LAYER 1: Pure black pit — maximum depth contrast -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#020810" />
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+
+    <!-- LAYER 2: Dark glass inner surface -->
+    <item android:left="1dp" android:right="1dp" android:top="1dp" android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#0A1828"
+                android:endColor="#060E1C" />
+            <corners android:radius="29dp" />
+        </shape>
+    </item>
+
+    <!-- LAYER 3: Hair-thin subtle border -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000" />
+            <stroke android:width="0.5dp" android:color="#10253E" />
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+
+</layer-list>

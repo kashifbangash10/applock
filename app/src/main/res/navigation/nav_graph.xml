@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.applockerapp.presentation.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_intruderSelfieFragment"
+            app:destination="@id/intruderSelfieFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_themesFragment"
+            app:destination="@id/themesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_vaultFragment"
+            app:destination="@id/vaultFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_profilesFragment"
+            app:destination="@id/profilesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/intruderSelfieFragment"
+        android:name="com.applockerapp.presentation.intruder.IntruderSelfieFragment"
+        android:label="@string/title_intruder_selfie"
+        tools:layout="@layout/fragment_intruder_selfie" />
+
+    <fragment
+        android:id="@+id/themesFragment"
+        android:name="com.applockerapp.presentation.themes.ThemesFragment"
+        android:label="@string/title_themes"
+        tools:layout="@layout/fragment_themes">
+        <action
+            android:id="@+id/action_themesFragment_to_applyThemeFragment"
+            app:destination="@id/applyThemeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/applyThemeFragment"
+        android:name="com.applockerapp.presentation.themes.ApplyThemeFragment"
+        android:label="Apply Theme"
+        tools:layout="@layout/fragment_apply_theme">
+        <argument
+            android:name="themeId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/vaultFragment"
+        android:name="com.applockerapp.presentation.vault.VaultFragment"
+        android:label="@string/title_vault"
+        tools:layout="@layout/fragment_vault">
+        <action
+            android:id="@+id/action_vaultFragment_to_vaultAlbumFragment"
+            app:destination="@id/vaultAlbumFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_vaultFragment_to_deviceAlbumsFragment"
+            app:destination="@id/deviceAlbumsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/vaultAlbumFragment"
+        android:name="com.applockerapp.presentation.vault.VaultAlbumFragment"
+        android:label="Album"
+        tools:layout="@layout/fragment_vault_album">
+        <argument android:name="albumName" app:argType="string" android:defaultValue="Album"/>
+        <argument android:name="bucketId"  app:argType="long"   android:defaultValue="-1L"/>
+        <argument android:name="isVideo"   app:argType="boolean" android:defaultValue="false"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/deviceAlbumsFragment"
+        android:name="com.applockerapp.presentation.vault.DeviceAlbumsFragment"
+        android:label="Albums"
+        tools:layout="@layout/fragment_device_albums">
+        <argument android:name="startTab" app:argType="integer" android:defaultValue="0"/>
+        <action
+            android:id="@+id/action_deviceAlbumsFragment_to_deviceAlbumDetailFragment"
+            app:destination="@id/deviceAlbumDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/deviceAlbumDetailFragment"
+        android:name="com.applockerapp.presentation.vault.DeviceAlbumDetailFragment"
+        android:label="Select to Hide"
+        tools:layout="@layout/fragment_vault_album">
+        <argument android:name="albumName" app:argType="string" android:defaultValue="Album"/>
+        <argument android:name="bucketId"  app:argType="long"   android:defaultValue="-1L"/>
+        <argument android:name="isVideo"   app:argType="boolean" android:defaultValue="false"/>
+        <argument android:name="hideMode"  app:argType="boolean" android:defaultValue="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.applockerapp.presentation.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_changeAppIconFragment"
+            app:destination="@id/changeAppIconFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_settingsFragment_to_securityQuestionFragment"
+            app:destination="@id/securityQuestionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/changeAppIconFragment"
+        android:name="com.applockerapp.presentation.themes.ChangeAppIconFragment"
+        android:label="Change App Icon"
+        tools:layout="@layout/fragment_change_app_icon" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.applockerapp.presentation.search.SearchFragment"
+        android:label="Search Apps"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/securityQuestionFragment"
+        android:name="com.applockerapp.presentation.settings.SecurityQuestionFragment"
+        android:label="Security Question"
+        tools:layout="@layout/fragment_security_question" />
+
+    <fragment
+        android:id="@+id/profilesFragment"
+        android:name="com.applockerapp.presentation.profile.ProfilesFragment"
+        android:label="Profiles"
+        tools:layout="@layout/fragment_profiles" />
+
+</navigation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base premium gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:startColor="#004D40"
+                android:centerColor="#00695C"
+                android:endColor="#A5D6A7"
+                android:angle="315" />
+        </shape>
+    </item>
+    <!-- Gold/white championship glow overlay -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="200dp"
+                android:startColor="#4DFFF3E0"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+</layer-list>
